@@ -1,0 +1,6 @@
+{
+    "require": {
+        "kylewm/brevity": "^0.2.5",
+        "themattharris/tmhoauth": "^0.8.4"
+    }
+}

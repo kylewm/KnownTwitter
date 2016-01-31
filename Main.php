@@ -335,8 +335,6 @@
              */
             function connect($username = false)
             {
-                require_once(dirname(__FILE__) . '/external/tmhOAuth/tmhOAuth.php');
-                require_once(dirname(__FILE__) . '/external/tmhOAuth/tmhUtilities.php');
                 if (!empty(\Idno\Core\Idno::site()->config()->twitter)) {
                     $params = array(
                         'consumer_key'    => \Idno\Core\Idno::site()->config()->twitter['consumer_key'],
