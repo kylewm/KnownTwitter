@@ -63,11 +63,11 @@
                 \Idno\Core\Idno::site()->addEventHook('syndication/selected/twitter', function (\Idno\Core\Event $event) {
                     $eventdata = $event->data();
 
-                    if (!empty($eventdata['reply-to'])) {
-                        $replyto = (array) $eventdata['reply-to'];
-                        foreach ($replyto as $url) {
-                            if (strpos(parse_url($url)['host'], 'twitter.com')!==false)
-                                $event->setResponse(true);
+                    $replyto = array_merge((array) $eventdata['reply-to'], (array) $eventdata['syndicated-to']);
+                    foreach ($replyto as $url) {
+                        if (strpos(parse_url($url, PHP_URL_HOST), 'twitter.com')!==false) {
+                            $event->setResponse(true);
+                            break;
                         }
                     }
                 });
